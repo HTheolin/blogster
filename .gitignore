@@ -1,0 +1,6 @@
+.gradle
+.idea/
+
+**/[Bb]uild/
+*.iml
+

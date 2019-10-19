@@ -17,7 +17,6 @@
         blogger: 'Mr Miagi',
         props: {
             msg: String,
-            blogs: Array,
             blogger: String,
         },
         data() {
@@ -34,12 +33,11 @@
 
             async getBlogPosts() {
                 try {
-                    restPath = process.env.HOST + process.env.BASE_REST_PATH
-                    const response = await fetch(restPath + '/blogs/123')
+                    const response = await fetch(process.env.HOST + process.env.BASE_REST_PATH + '/blogs/123')
                     const data = await response.json()
                     this.blogs = data
                 } catch (e) {
-                    console.error(e)
+                    throw new Error(e.message);
                 }
 
             }
